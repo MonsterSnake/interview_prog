@@ -1,0 +1,74 @@
+Instructions for run APIs:
+
+=>	Create Token:
+
+	curl --location 'http://127.0.0.1:8000/api/api-token-auth/' \
+	--header 'Content-Type: application/json' \
+	--data '{
+		"username":"root",
+		"password": "12345"
+	}'
+	
+=>	Create Category:
+
+	curl --location 'http://127.0.0.1:8000/api/v1/categories/' \
+	--header 'Authorization: Token <token>' \
+	--header 'Content-Type: application/json' \
+	--data '{
+		"name": "food"
+	}'
+
+=>	GET Category:
+
+	curl --location 'http://127.0.0.1:8000/api/v1/categories/' \
+	--header 'Authorization: Token <token>'
+	
+=>	DELETE Category:
+
+	curl --location --request DELETE 'http://127.0.0.1:8000/api/v1/categories/<categories_id>/' \
+	--header 'Authorization: Token <token>'
+	
+=>	UPDATE Category:
+
+	curl --location --request PUT 'http://127.0.0.1:8000/api/v1/categories/<categories_id>/' \
+	--header 'Authorization: Token <token>' \
+	--header 'Content-Type: application/json' \
+	--data '{
+		"name": "drink"
+	}'
+	
+=>	Create Products:
+
+	curl --location 'http://127.0.0.1:8000/api/v1/products/' \
+	--header 'Authorization: Token <token>' \
+	--header 'Content-Type: application/json' \
+	--data '{
+		"category_id": 1,
+		"title": "water",
+		"description": "test desc",
+		"price": 50.50,
+		"status": 1
+	}'
+	
+=>	GET Products:
+	
+	curl --location 'http://127.0.0.1:8000/api/v1/products/' \
+	--header 'Authorization: Token <token>'
+	
+=>	UPDATE Products:
+
+	curl --location --request PUT 'http://127.0.0.1:8000/api/v1/products/<product_id>/' \
+	--header 'Authorization: Token <token>' \
+	--header 'Content-Type: application/json' \
+	--data '{
+		"category_id": 1,
+		"title": "juice",
+		"description": "test desc",
+		"price": 50.50,
+		"status": 1
+	}'
+	
+=>	DELETE Product:
+	
+	curl --location --request DELETE 'http://127.0.0.1:8000/api/v1/products/<product_id>/' \
+	--header 'Authorization: Token <token>'

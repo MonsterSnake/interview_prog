@@ -1,0 +1,38 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <form method="post">
+            <input type="number" placeholder="10" />
+            <input type="submit"> 
+        </form>
+        <br />
+        <br />
+        <br />
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>category_id</th>
+                <th>title</th>
+                <th>description</th>
+                <th>price</th>
+                <th>status</th>
+                <th>created_at</th>
+                <th>updated_at</th>
+            </tr>
+            {% for d in data %}
+            <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.category_id}}</td>
+                <td>{{d.title}}</td>
+                <td>{{d.description}}</td>
+                <td>{{d.price}}</td>
+                <td>{{d.status}}</td>
+                <td>{{d.created_at}}</td>
+                <td>{{d.updated_at}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
